@@ -1,0 +1,11 @@
+[global]
+debug = False
+
+[auth]
+
+[napps]
+api = https://napps.kytos.io/api/
+repo = https://napps.kytos.io/repo
+
+[kytos]
+api = http://localhost:8181/

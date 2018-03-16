@@ -1,0 +1,37 @@
+---
+- hosts: localhost
+  become: false
+  tasks:
+  - name: Git pull upstream kytos/kytos
+    git:
+      repo: https://github.com/kytos/kytos.git
+      dest: "{{ playbook_dir }}/kytos"
+      accept_hostkey: yes
+      update: yes
+
+  - name: Make sure quaio_login.sh is present
+    stat: path=quaio_login.sh get_md5=true follow=false
+
+  - name: Login quay.io
+    command: ./quayio_login.sh >
+      chdir="{{ playbook_dir }}"
+    register: res
+
+  - name: Login result
+    debug: msg={{ res.stdout }}
+
+  - name: Remove local image prior to build
+    docker_image:
+      state: absent
+      path: "{{ playbook_dir }}"
+      name: quay.io/amlight/kytos
+      tag: nightly
+      force: yes
+
+  - name: Build kytos nightly
+    docker_image:
+      state: present
+      path: "{{ playbook_dir }}"
+      name: quay.io/amlight/kytos
+      tag: nightly
+      push: yes
