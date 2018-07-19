@@ -1,6 +1,6 @@
 FROM kytos/base
 
-RUN python3.6 -m pip install kytos==2018.1b3.post2
+RUN python3.6 -m pip install kytos==2018.1
 
 EXPOSE 6633
 
