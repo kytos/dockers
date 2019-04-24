@@ -1,6 +1,6 @@
 # This is base image used by Kytos project
 # Here we only install ubuntu, few dependencies and clone all repos
-FROM ubuntu:17.10
+FROM ubuntu:18.04
 
 ENV LANG C.UTF-8
 
