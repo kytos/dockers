@@ -1,5 +1,5 @@
-Welcome to Kytos SDN Plataform's docker image
-=============================================
+Welcome to Kytos SDN Platform's docker image
+============================================
 
 This is a docker image with Kytos SDN Plataform already installed ready to run.
 
@@ -12,6 +12,9 @@ If you want to manage napps, please run:
 $ kytos napps --help
 
 !! This image is ephemeral. All changes will be lost !!
+
+If you are having problems with openvswitch, please install ovn-docker on host
+and make sure openvswitch is running.
 
 If you are having problems with mininet, please run with privileges:
 
