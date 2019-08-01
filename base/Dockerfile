@@ -4,11 +4,9 @@ FROM ubuntu:18.04
 
 ENV LANG C.UTF-8
 
-ARG CACHE_DATE=2016-01-01
-
 # Install dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends\
-    git vim python3.6 python3-setuptools python3-pip \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    openvswitch-switch git vim python3.6 python3-setuptools python3-pip \
     curl iproute2 iputils-ping mininet net-tools tcpdump syslog-ng tmux screen \
     && rm -rf /var/lib/apt/lists/* \
     && mv /bin/ping /sbin/ping \

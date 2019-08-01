@@ -1,17 +1,23 @@
-Welcome to Kytos SDN Plaforms's nightly docker image
-====================================================
+Welcome to Kytos SDN Platform's docker image
+============================================
 
 This is a docker image with Kytos SDN Plataform already installed ready to run.
 
-You can easily run this image with specific napps installed running the command
-below.
+If you want to run kytos, please try:
 
-$ docker run -e KYTOS_NAPPS='kytos/of_core,kytos/of_lldp' -it kytos/nightly
+$ kytosd
 
+If you want to manage napps, please run:
 
-If you want run the docker in background you can use the command below.
+$ kytos napps --help
 
-$ docker run -e KYTOS_NAPPS='kytos/of_core,kytos/of_lldp' -dt kytos/nightly
+!! This image is ephemeral. All changes will be lost !!
 
+If you are having problems with openvswitch, please install ovn-docker on host
+and make sure openvswitch is running.
+
+If you are having problems with mininet, please run with privileges:
+
+$ docker run -it --privileged kytos/nightly
 
 For more information please visit: https://kytos.io/
